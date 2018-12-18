@@ -86,9 +86,17 @@ do
 
 		cd $HOME
 
+		git clone https://github.com/viliyam2811/termux-metasploit-helper
 		
+		cd termux-metasploit-helper
+		
+		chmod +x *
+		
+		./init
 
-
+		cd $HOME
+		rm -rf termux-metasploit-helper
+		
 		option=13
 	elif [ $option -eq 2 ]
 	then
@@ -108,6 +116,8 @@ do
 		option=0
 	fi
 done
+
+
 
 
 
