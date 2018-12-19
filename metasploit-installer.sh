@@ -56,7 +56,7 @@ do
 #Clone Metasploit-Framework
 		sleep 1
 		echo "Downloading Metasploit-Framework" |lolcat
-		git clone https://github.com/rapid7/metasploit-framework -y |lolcat
+		git clone https://github.com/rapid7/metasploit-framework |lolcat
 		
 #Install Other Required Packeges
 		sleep 1
