@@ -28,50 +28,58 @@ do
 		clear
 #Install Ruby
 		echo "Installing Base Environment"
-		sleep 1
-
+		echo ""
+		sleep 2
 		pkg install ruby -y
 		gem install lolcat
 
-#Install Bundle
+#Install Other Required Packeges
+		echo "Installing Other Required Packeges" |lolcat
+		echo ""
 		sleep 1
+		pkg install autoconf bison clang coreutils curl findutils git apr apr-util libffi-dev libgmp-dev libpcap-dev postgresql-dev readline-dev libsqlite-dev openssl-dev libtool libxml2-dev libxslt-dev ncurses-dev pkg-config make ruby-dev termux-tools ncurses ncurses-utils termux-exec -y |lolcat
+
+#Install Bundle
 		echo "Installing Bundle" |lolcat
+		echo ""
+		sleep 1
 		gem install bundler |lolcat
 
 #Install nokogiri Gem
-		sleep 1
 		echo "Installing Nokogiri" |lolcat
+		echo ""
+		sleep 1
 		gem install nokogiri -- --use-system-libraries |lolcat
 
 #Install Required Gems
-		sleep 1
 		echo "Installing -j5" |lolcat
+		echo ""
+		sleep 1
 		bundle install -j5 |lolcat
 
 #Install GIT
-		sleep 1
 		echo "Installing GIT" |lolcat
+		echo ""
+		sleep 1
 		pkg install git -y |lolcat
 
 #Clone Metasploit-Framework
-		sleep 1
 		echo "Downloading Metasploit-Framework" |lolcat
+		echo ""
+		sleep 1
 		git clone https://github.com/rapid7/metasploit-framework |lolcat
 		
-#Install Other Required Packeges
-		sleep 1
-		echo "Installing Other Required Packeges" |lolcat
-		pkg install autoconf bison clang coreutils curl findutils git apr apr-util libffi-dev libgmp-dev libpcap-dev postgresql-dev readline-dev libsqlite-dev openssl-dev libtool libxml2-dev libxslt-dev ncurses-dev pkg-config make ruby-dev termux-tools ncurses ncurses-utils termux-exec -y |lolcat
-
 #Fix Termux Shebang
-		sleep 1
 		echo "Fixing Termux Shebang" |lolcat
+		echo ""
+		sleep 1
 		$PREFIX/bin/find -type f -executable -exec termux-fix-shebang \{\} \; |lolcat
 		
 
 #Setting up Database
-		sleep 1
 		echo "Setting up Database" |lolcat
+		echo ""
+		sleep 1
 		cd $HOME/metasploit-framework/config
 		
 		curl -LO https://Auxilus.github.io/database.yml 
@@ -84,10 +92,13 @@ do
 		createuser msf 
 		createdb msf_database
 
+#Install termux-metasploit-helper
+		echo "Installing termux-metasploit-helper commands"
+		echo ""
+		sleep 1
 		cd $HOME
-
-		git clone https://github.com/viliyam2811/termux-metasploit-helper
 		
+		git clone https://github.com/viliyam2811/termux-metasploit-helper
 		cd termux-metasploit-helper
 		
 		chmod +x *
