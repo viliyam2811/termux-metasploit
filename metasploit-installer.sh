@@ -93,9 +93,6 @@ do
 		chmod +x *
 		
 		./init
-
-		cd $HOME
-		rm -rf termux-metasploit-helper
 		
 		option=13
 	elif [ $option -eq 2 ]
