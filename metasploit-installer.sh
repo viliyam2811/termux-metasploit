@@ -67,6 +67,7 @@ do
 		echo "Downloading Metasploit-Framework" |lolcat
 		echo ""
 		sleep 1
+		cd $HOME
 		git clone https://github.com/rapid7/metasploit-framework |lolcat
 		
 #Fix Termux Shebang
