@@ -51,11 +51,7 @@ do
 		sleep 1
 		gem install nokogiri -- --use-system-libraries |lolcat
 
-#Install Required Gems
-		echo "Installing -j5" |lolcat
-		echo ""
-		sleep 1
-		bundle install -j5 |lolcat
+
 
 #Install GIT
 		echo "Installing GIT" |lolcat
@@ -69,6 +65,13 @@ do
 		sleep 1
 		cd $HOME
 		git clone https://github.com/rapid7/metasploit-framework |lolcat
+		
+#Install Required Gems
+		echo "Installing -j5" |lolcat
+		echo ""
+		sleep 1
+		cd $HOME/metasploit-framework
+		bundle install -j5 |lolcat
 		
 #Fix Termux Shebang
 		echo "Fixing Termux Shebang" |lolcat
