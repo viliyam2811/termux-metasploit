@@ -29,53 +29,47 @@ do
 #Install Ruby
 		echo "Installing Base Environment"
 		echo ""
-		sleep 2
 		pkg install ruby -y
 		gem install lolcat
+		sleep 2
 		clear
 		
 #Install Other Required Packeges
 		echo "Installing Other Required Packeges" |lolcat
 		echo ""
-		sleep 2
 		pkg install autoconf bison clang coreutils curl findutils git apr apr-util libffi-dev libgmp-dev libpcap-dev postgresql-dev readline-dev libsqlite-dev openssl-dev libtool libxml2-dev libxslt-dev ncurses-dev pkg-config make ruby-dev termux-tools ncurses ncurses-utils termux-exec -y |lolcat
+		sleep 2
 		clear
 		
 #Install Bundle
 		echo "Installing Bundle" |lolcat
 		echo ""
-		sleep 2
+		gem update --system
 		gem install bundler |lolcat
+		sleep 2
 		clear
 		
 #Install nokogiri Gem
 		echo "Installing Nokogiri" |lolcat
 		echo ""
-		sleep 
 		gem install nokogiri -- --use-system-libraries |lolcat
-		clear
-		
-#Install GIT
-		echo "Installing GIT" |lolcat
-		echo ""
-		sleep 1
-		pkg install git -y |lolcat
+		sleep 2
 		clear
 		
 #Clone Metasploit-Framework
 		echo "Downloading Metasploit-Framework" |lolcat
 		echo ""
-		sleep 2
 		cd $HOME
 		git clone https://github.com/rapid7/metasploit-framework |lolcat
+		sleep 2
 		clear
 		
 #Install Required Gems
 		echo "Installing -j5" |lolcat
 		echo ""
-		sleep 2
 		cd $HOME/metasploit-framework
 		bundle install -j5 |lolcat
+		sleep 2
 		clear
 		
 #Fix Termux Shebang
@@ -83,6 +77,7 @@ do
 		echo ""
 		sleep 2
 		$PREFIX/bin/find -type f -executable -exec termux-fix-shebang \{\} \; |lolcat
+		sleep 2
 		clear
 
 #Setting up Database
@@ -100,10 +95,8 @@ do
 
 		createuser msf 
 		createdb msf_database
-		
-		sleep 2
 		echo "Database setup Completed" |lolcat
-		
+		sleep 2
 		clear
 		
 #Install termux-metasploit-helper
