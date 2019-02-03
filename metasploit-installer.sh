@@ -105,8 +105,8 @@ do
 		sleep 2
 		cd $HOME
 		
-		git clone https://github.com/viliyam2811/termux-metasploit-helper
-		cd termux-metasploit-helper
+		git clone https://github.com/viliyam2811/termux-ascii-art
+		cd termux-ascii-art
 		
 		chmod +x *
 		
